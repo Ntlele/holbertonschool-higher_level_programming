@@ -2,4 +2,4 @@
 number = 98
 # YOUR CODE GOES HERE. PLEASE REMOVE THIS LINE
 
-print(number, "Battery street")
+print(f"{number} Battery street")
