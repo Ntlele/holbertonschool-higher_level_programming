@@ -8,4 +8,3 @@ def uppercase(str):
         else:
             up_str += char
     print(up_str)
-    return up_str
