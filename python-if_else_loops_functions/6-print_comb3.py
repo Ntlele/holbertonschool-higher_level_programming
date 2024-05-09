@@ -5,4 +5,3 @@ for x in range(0, 10):
             if (str(x) + str(y)) != "89":
                 print("{}{}".format(x, y), end=", ")
 print("89")
-
