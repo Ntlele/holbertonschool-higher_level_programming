@@ -9,7 +9,7 @@ if number < 0:
 if rem == 0:
     txt = "and is 0"
 elif rem > 5:
-    txt = "and is greator than 5"
+    txt = "and is greater than 5"
 elif rem < 6:
     txt = "and is less than 6 and not 0"
 
