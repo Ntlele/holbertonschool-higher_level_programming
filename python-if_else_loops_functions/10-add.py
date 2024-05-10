@@ -2,5 +2,4 @@
 def add(a, b):
     sum = a + b
     print("{}".format(sum))
-    return sum
-add(3, 5) 
+    return sum 
