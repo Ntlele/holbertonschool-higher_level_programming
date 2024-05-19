@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#-*- coding UTF-8 -*-
 
 """
 2-square.py: contains a class Square that defines a square
@@ -17,7 +18,7 @@ class Square:
         """Initializer with default size = 0"""
         if type(size) is not int:
             raise TypeError("Size must be an integer")
-        elif size < 0:
+        if size < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        
+        self.__size = size
