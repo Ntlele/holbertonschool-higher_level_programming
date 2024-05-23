@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ 0-add_integers.py """
 
+
 def add_integer(a, b=98):
-    """ 
+    """
     Adds two numbers
 
     args:
@@ -11,7 +12,7 @@ def add_integer(a, b=98):
 
     Returns:
         sum of two numbers
-    
+
     """
 
     if type(a) is not int and type(a) is not float:
