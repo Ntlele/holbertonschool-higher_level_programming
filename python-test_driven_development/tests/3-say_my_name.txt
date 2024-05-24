@@ -1,0 +1,36 @@
+# 3-say_my_name.txt
+# Run: python3 -m doctest -v ./tests/3-say_my_name.txt
+
+Importing function from the module:
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+# Test: Normal cases
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+# Test: Only first name provided
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+# Test: first_name is not a string
+    >>> try:
+    ...     say_my_name(12, "White")
+    ... except Exception as e:
+    ...     print(e)
+    first_name must be a string
+
+# Test: last_name is not a string
+    >>> try:
+    ...     say_my_name("John", 123)
+    ... except Exception as e:
+    ...     print(e)
+    last_name must be a string
+
+# Test: first_name and last_name are both not strings
+    >>> try:
+    ...     say_my_name(12, 123)
+    ... except Exception as e:
+    ...     print(e)
+    first_name must be a string

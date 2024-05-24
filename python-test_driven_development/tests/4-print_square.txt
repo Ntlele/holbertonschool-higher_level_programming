@@ -1,0 +1,61 @@
+# 4-print_square.txt
+# Run: python3 -m doctest -v ./tests/4-print_square.txt
+
+Importing function from the module:
+    >>> print_square = __import__('4-print_square').print_square
+
+# Test: Normal case with integer size
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+# Test: Edge case with size 0
+    >>> print_square(0)
+
+# Test: Edge case with size 1
+    >>> print_square(1)
+    #
+
+# Test: size is a negative integer
+    >>> try:
+    ...     print_square(-1)
+    ... except Exception as e:
+    ...     print(e)
+    size must be >= 0
+
+# Test: size is a float
+    >>> try:
+    ...     print_square(3.5)
+    ... except Exception as e:
+    ...     print(e)
+    size must be an integer
+
+# Test: size is a string
+    >>> try:
+    ...     print_square("3")
+    ... except Exception as e:
+    ...     print(e)
+    size must be an integer
+
+# Test: size is a list
+    >>> try:
+    ...     print_square([3])
+    ... except Exception as e:
+    ...     print(e)
+    size must be an integer
+
+# Test: size is None
+    >>> try:
+    ...     print_square(None)
+    ... except Exception as e:
+    ...     print(e)
+    size must be an integer
+
+# Test: size is a float less than 0
+    >>> try:
+    ...     print_square(-2.5)
+    ... except Exception as e:
+    ...     print(e)
+    size must be an integer
