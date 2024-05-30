@@ -10,6 +10,6 @@ def write_file(file_name="", text=""):
     # Open the file in write mode and write the text to it
     with open(file_name, 'w') as file:
         file.write(text)
-    
+
     # Return the number of characters written
     return len(text)
