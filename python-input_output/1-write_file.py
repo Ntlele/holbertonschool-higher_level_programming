@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module write a string to a file 
+This module write a string to a file
 and returns the number of characters writen
 """
 
