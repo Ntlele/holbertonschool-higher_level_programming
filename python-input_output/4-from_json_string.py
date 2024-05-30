@@ -1,17 +1,12 @@
 #!/usr/bin/python3
-"""
-This module that returns an object represented by the JSON string
-"""
+"""4. From JSON string to Object"""
+
+import json
 
 
-def from_json_string(my_string):
-    """ Returns the object represented by a JSON string """
-
-
-    if isinstance(my_string, str):
-        try:
-            return eval(my_string)
-        except SyntaxError:
-            return None
-    else:
-        return None
+def from_json_string(my_str):
+    """
+    returns an object (Python data structure) represented by a JSON
+    string
+    """
+    return json.loads(my_str)
