@@ -1,31 +1,47 @@
 #!/usr/bin/python3
-
 """
-This module converts data from current file type to next
+task_03_xml.py serialization and deserialization using
+XML as an alternative format to JSON
 """
-import csv
-import json
+import xml.etree.ElementTree as ET
 
 
-
-def convert_csv_to_json(csv_filename):
+def serialize_to_xml(dictionary, filename):
     """
-    Converts a CSV file to JSON format.
+    turn python dictionary to xml
+
     Args:
-      csv_filename: The name of the CSV file to convert.
+        dictionary (object): python object
+        filename (str): name of the file to write to
+    """
+
+    root = ET.Element("data")
+
+    for key, value in dictionary.items():
+        child = ET.Element(key)
+        child.text = str(value)
+        root.append(child)
+
+    tree = ET.ElementTree(root)
+    tree.write(filename, encoding='utf-8', xml_declaration=True)
+
+def deserialize_from_xml(filename):
+    """
+    Read from xml file
+
+    Args:
+        filename (str): name of the file to read from
 
     Returns:
-        True if the conversion was successful, False otherwise
+        the data from the xml file as a dictionary
     """
-    try:
-        with open(csv_filename, 'r') as csv_file:
-            csv_reader = csv.DictReader(csv_file)
-            data = list(csv_reader)
-        
-        with open('data.json', 'w') as json_file:
-            json.dump(data, json_file, indent=4)
-        
-        return True
-    except FileNotFoundError:
-        return False
 
+    tree = ET.parse(filename)
+    root = tree.getroot()
+
+    data = {}
+
+    for child in root:
+        data[child.tag] = child.text
+
+    return data
