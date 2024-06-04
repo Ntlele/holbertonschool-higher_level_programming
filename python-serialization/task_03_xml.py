@@ -1,34 +1,47 @@
 #!/usr/bin/python3
-
-""" This module converts XML to JSON """
-import xml.estree.ElementTree as ET
-
+"""
+task_03_xml.py serialization and deserialization using
+XML as an alternative format to JSON
+"""
+import xml.etree.ElementTree as ET
 
 
 def serialize_to_xml(dictionary, filename):
     """
-    This Method converts JSON to XML format
+    turn python dictionary to xml
 
+    Args:
+        dictionary (object): python object
+        filename (str): name of the file to write to
     """
 
-    root = ET.Element('data')
+    root = ET.Element("data")
+
     for key, value in dictionary.items():
-        child = ET.SubElement(root, key)
+        child = ET.Element(key)
         child.text = str(value)
+        root.append(child)
 
     tree = ET.ElementTree(root)
-    tree.write(filename)
+    tree.write(filename, encoding='utf-8', xml_declaration=True)
 
 def deserialize_from_xml(filename):
     """
-    This method converts xml to JSON
+    Read from xml file
+
+    Args:
+        filename (str): name of the file to read from
+
+    Returns:
+        the data from the xml file as a dictionary
     """
+
     tree = ET.parse(filename)
     root = tree.getroot()
-    deserialized_dict = {}
+
+    data = {}
 
     for child in root:
-        deserialized_dict[child.tag] = child.text
+        data[child.tag] = child.text
 
-    return deserialized_dict
-
+    return data
