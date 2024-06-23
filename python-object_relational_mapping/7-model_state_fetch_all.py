@@ -19,6 +19,7 @@ def fetch_all_states(username, password, database):
         password (str): MySQL password.
         database (str): Database name.
     """
+    
     try:
         # Connect to the MySQL server
         engine = create_engine(
