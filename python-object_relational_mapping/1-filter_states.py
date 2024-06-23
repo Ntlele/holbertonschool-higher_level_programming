@@ -1,16 +1,17 @@
 #!/usr/bin/python3
 """
-Script to list all states from the database hbtn_0e_0_usa.
+Script to list all states with a name starting with
+'N' (upper N) from the database hbtn_0e_0_usa.
 """
 
 import MySQLdb
 import sys
 
 
-def list_states(username, password, database):
+def filter_states(username, password, database):
     """
-    Connects to the MySQL server and lists all states from
-    the specified database.
+    Connects to the MySQL server and lists all states
+    with a name starting with 'N'.
 
     Args:
         username (str): MySQL username.
@@ -26,7 +27,8 @@ def list_states(username, password, database):
             db=database
         )
         cursor = db.cursor()
-        cursor.execute("SELECT * FROM states ORDER BY id ASC")
+        cursor.execute("""SELECT * FROM states WHERE name
+                       LIKE BINARY 'N%' ORDER BY states.id""")
         states = cursor.fetchall()
         for state in states:
             print(state)
@@ -38,6 +40,6 @@ def list_states(username, password, database):
 
 if __name__ == "__main__":
     if len(sys.argv) == 4:
-        list_states(sys.argv[1], sys.argv[2], sys.argv[3])
+        filter_states(sys.argv[1], sys.argv[2], sys.argv[3])
     else:
-        print("Usage: ./0-select_states.py <username> <password> <database>")
+        print("Usage: ./1-filter_states.py <username> <password> <database>")
