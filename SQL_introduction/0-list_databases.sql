@@ -7,6 +7,7 @@ This module checks for the MYSQL databases
 def list_databases():
     try:
         # Establish the connection to MySQL
+	#--gridentials are required before listing
         connection = mysql.connector.connect(
             host='localhost',
             user='root',
