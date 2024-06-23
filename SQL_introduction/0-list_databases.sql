@@ -1,2 +1,2 @@
---Listing the active MYSQL server databases
+-- Listing the active MYSQL server databases
 SHOW DATABASES;
