@@ -1,19 +1,16 @@
-import mysql.connector
-from mysql.connector import Error
-"""
-This module checks for the MYSQL databases
-"""
+import mysql.connector  # -- Import the mysql.connector module to interact with MySQL
+from mysql.connector import Error  # -- Import the Error class for handling exceptions
 
 def list_databases():
     try:
-        # Establish the connection to MySQL
-	#--gridentials are required before listing
+        -- Establish the connection to MySQL server
         connection = mysql.connector.connect(
-            host='localhost',
+            host='localhost', 
             user='root',
             password='password'
         )
 
+        -- Check if the connection was successful
         if connection.is_connected():
             cursor = connection.cursor()
             cursor.execute("SHOW DATABASES")
@@ -24,7 +21,9 @@ def list_databases():
 
     except Error as e:
         print(f"Error: {e}")
+
     finally:
+        -- Ensure that the cursor and connection are closed properly
         if connection.is_connected():
             cursor.close()
             connection.close()
